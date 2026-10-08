@@ -1,0 +1,84 @@
+{
+  "created": "2026-10-03",
+  "target": "Windows x64",
+  "starter": {
+    "url": "https://github.com/vladeemerr/vulkan-starter-app",
+    "commit": "7049a07b14f3f0deae7c9c0d3754bee88f876df0"
+  },
+  "tools": [
+    {
+      "name": "LLVM-MinGW UCRT x64",
+      "version": "20260922 (Clang 23.1.2)",
+      "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20260922/llvm-mingw-20260922-ucrt-x86_64.zip",
+      "sha256": "e3ad77d117a4bea19a7a3b333341824d79a5a371004a10e25b8504e7b3047666",
+      "verification": "Matches digest published in the official GitHub release assets.",
+      "directory": ".tools/llvm-mingw-20260922-ucrt-x86_64"
+    },
+    {
+      "name": "CMake",
+      "version": "4.4.4",
+      "url": "https://github.com/Kitware/CMake/releases/download/v4.4.4/cmake-4.4.4-windows-x86_64.zip",
+      "sha256": "bace36e94b31c68ab6fa295f26dfa11219e0701cf7c94b0284a7d1cb13dac536",
+      "verification": "Matches cmake-4.4.4-SHA-256.txt from the official release.",
+      "directory": ".tools/cmake-4.4.4-windows-x86_64"
+    },
+    {
+      "name": "Ninja",
+      "version": "1.13.2",
+      "url": "https://github.com/ninja-build/ninja/releases/download/v1.13.2/ninja-win.zip",
+      "sha256": "07fc8261b42b20e71d1720b39068c2e14ffcee6396b76fb7a795fb460b78dc65",
+      "verification": "Matches digest published in the official GitHub release assets.",
+      "directory": ".tools/ninja"
+    },
+    {
+      "name": "Vulkan SDK",
+      "version": "1.4.321.1",
+      "url": "https://sdk.lunarg.com/sdk/download/1.4.321.1/windows/vulkansdk-windows-X64-1.4.321.1.exe",
+      "sha256": "baaa4f7ca11ed3d82aa1c102b21208915485bbaa473068c763daa425cca468bd",
+      "verification": "Authenticode signature Valid, signer LunarG, Inc. SHA-256 recorded from the signed installer.",
+      "directory": ".tools/VulkanSDK/1.4.321.1",
+      "installation": "copy_only=1; temporary SUBST V: to the project used only during installation, removed afterwards."
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "glfw",
+      "tag": "3.5.1",
+      "commit": "70a9bb3881fe80fd483236e2b203cb451c6ecf40",
+      "sha256": "615e919e342d57ed748d7af19b1b11060d3df0e35e2b200be568620f007399f8"
+    },
+    {
+      "name": "vk-bootstrap",
+      "tag": "v1.4.321",
+      "commit": "522a579912cbeed7b52c948072d87ce001488ded",
+      "sha256": "6a0345247a1c6f0bf757568f6ab9ab412a3e6c9016f951f385782e6efae8c7ab"
+    },
+    {
+      "name": "VulkanMemoryAllocator",
+      "tag": "v3.4.0",
+      "commit": "3aa921224c154a0d2c43912bc88e1c42ce1f7607",
+      "sha256": "5935dc47d8659bb681f1b7218f903ec171d10c39509752fd64eb2c9daf601ced"
+    },
+    {
+      "name": "imgui",
+      "tag": "v1.92.9",
+      "commit": "01380c579715e62fb9a8d6ec0502c4ea83bfde6e",
+      "sha256": "c7bc489afefa2461c40a84812118e6dff86e7eadfc4b7e2f851a8c94ade8910d"
+    },
+    {
+      "name": "glm",
+      "tag": "1.0.1",
+      "commit": "0af55ccecd98d4e5a8d1fad7de25ba429d60e863",
+      "sha256": "e7f187d83523f505eb38dd25d297ea6c0d4ed856d733e808f18253f5a8fa88a0"
+    }
+  ],
+  "dependencies_note": "Tags resolved using git ls-remote from upstream. Archive SHA-256 values recorded from HTTPS downloads and enforced by CMake URL_HASH.",
+  "system_changes": {
+    "driver": "unchanged",
+    "user_path": "unchanged",
+    "machine_path": "unchanged",
+    "user_vulkan_sdk": "unchanged",
+    "machine_vulkan_sdk": "unchanged",
+    "temporary_drive": "removed"
+  }
+}

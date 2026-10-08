@@ -1,47 +1,24 @@
 {
-	"version": 2,
-	"configurePresets": [
-		{
-			"name": "common",
-			"hidden": true,
-			"generator": "Ninja",
-			"cacheVariables": {}
-		},
-		{
-			"name": "debug",
-			"inherits": "common",
-			"binaryDir": "build-debug",
-			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Debug"
-			}
-		},
-		{
-			"name": "release",
-			"inherits": "common",
-			"binaryDir": "build-release",
-			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release"
-			}
-		},
-		{
-			"name": "msvc-debug",
-			"inherits": "debug",
-			"generator": "Visual Studio 17 2022"
-		},
-		{
-			"name": "msvc-release",
-			"inherits": "release",
-			"generator": "Visual Studio 17 2022"
-		},
-		{
-			"name": "mingw-debug",
-			"inherits": "debug",
-			"generator": "MinGW Makefiles"
-		},
-		{
-			"name": "mingw-release",
-			"inherits": "release",
-			"generator": "MinGW Makefiles"
-		}
-	]
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "local",
+      "displayName": "Local LLVM-MinGW / Ninja",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "${sourceDir}/.tools/llvm-mingw-20260922-ucrt-x86_64/bin/clang.exe",
+        "CMAKE_CXX_COMPILER": "${sourceDir}/.tools/llvm-mingw-20260922-ucrt-x86_64/bin/clang++.exe",
+        "CMAKE_MAKE_PROGRAM": "${sourceDir}/.tools/ninja/ninja.exe"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "local",
+      "configurePreset": "local",
+      "jobs": 2
+    }
+  ]
 }
